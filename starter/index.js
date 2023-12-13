@@ -1,2 +1,1 @@
-const hello = 'Hello world';
-console.log(hello);
+const fs = require('fs');
