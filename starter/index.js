@@ -1,7 +1,8 @@
 const fs = require('fs');
 
+//Blocking Syncronous way
 const textIn = fs.readFileSync('/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/input.txt', 'utf-8');    //Syncronous version of file reading
-console.log(textIn);
+//console.log(textIn);
 
 /*
 takes two arguments:
@@ -23,3 +24,5 @@ Will use the ES6 template string to format our string output
     `Text we are adding data to ${outside Data or data we want to format}`
 writeFileSync('path', <outputing to file>)
 */
+
+//Non-Blocking Asyncronous way
