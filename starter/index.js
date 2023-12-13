@@ -26,5 +26,12 @@ const fs = require('fs');
 // */
 
 //Non-Blocking Asyncronous way
-fs.readFile('./txt/start.txt', 'utf-8' , (err, data) => { console.log(data); }); 
+fs.readFile('./txt/start.txt', 'utf-8' , (err, data1) => { 
+    fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/${data1}.txt`, 'utf-8' , (err, data2) => { 
+        console.log(data2);
+        fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/append.txt`, 'utf-8' , (err, data3) => {
+            console.log(data3);
+        })
+    })
+}); 
 console.log("Im first"); //Ouptut befor the call-back function above because not processing any data
