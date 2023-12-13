@@ -26,17 +26,18 @@ const fs = require('fs');
 // */
 
 //Non-Blocking Asyncronous way
-fs.readFile('./txt/start.txt', 'utf-8' , (err, data1) => { 
-    fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/${data1}.txt`, 'utf-8' , (err, data2) => { 
-        console.log(data2);
-        fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/append.txt`, 'utf-8' , (err, data3) => {
-            console.log(data3);
+fs.readFile('./txt/start.txt', 'utf-8' , (err, data1) => {                   //Get read-this file
+    if (err) return console.log('ERROR!');
+    fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/${data1}.txt`, 'utf-8' , (err, data2) => {    //Read read-this file
+        console.log(data2);                                                                                                 //Output read-this file
+        fs.readFile(`/Users/isaiahm/Developer/Node-Course/1-node-farm/starter/txt/append.txt`, 'utf-8' , (err, data3) => {  //Get appendix
+            console.log(data3);                                                                                             //Output appendix
 
-            //Write contents of these files to a single string in a file
-            fs.writeFile('./txt/final.txt', `${data2}\n-> ${data3}`, 'utf-8', err => {  //No data so there can only be an error
+                                                                                                                            //Write contents of these files to a single string in a file
+            fs.writeFile('./txt/final.txt', `${data2}\n-> ${data3}`, 'utf-8', err => {                                      //No data so there can only be an error
                 console.log("Your file has been written");
             })
         })
     })
 }); 
-console.log("Im first"); //Ouptut befor the call-back function above because not processing any data
+console.log("Im first");                                                                                                    //Ouptut befor the call-back function above because not processing any data
